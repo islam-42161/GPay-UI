@@ -3,13 +3,13 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { BORDER_RADIUS, COLORS, FONT_SIZES, FONT_WEIGHTS, SPACING, STATUSBAR_HEIGHT } from '../const/theme'
 import { Image } from 'expo-image'
 import { MaterialIcons, Foundation } from '@expo/vector-icons';
-import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetBackdrop, BottomSheetScrollView, BottomSheetView } from '@gorhom/bottom-sheet';
 import { businessNbills, peoples } from '../const/data'
 import Animated, { FadeInDown, FadingTransition } from 'react-native-reanimated'
 
 const { height, width } = Dimensions.get('window')
 const ANIMATION_DELAY = 300
-const Home = () => {
+const Home = ({navigation,route}) => {
     const bottomSheetRef = useRef(null);
     const [topComponentHeight, setTopComponentHeight] = useState(0);
     const snapPoints = useMemo(() => ([height - topComponentHeight, height]), [topComponentHeight])
@@ -48,7 +48,7 @@ const Home = () => {
                             placeholder='Pay by name or Phone number'
                         />
                     </Pressable>
-                    <Pressable style={styles.avatar}>
+                    <Pressable onPress={()=>navigation.navigate('profile')} style={styles.avatar}>
                         <Image
                             transition={500}
                             source={'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxIss5IsLcvu7gmR2zDMQg4Pyy-guEblfe0o7ggjCvS_YAk6sICcnBevUAMYvaB-VlGHJa'}
@@ -79,7 +79,7 @@ const Home = () => {
                 activeOffsetY={[-20,20]}
                 handleIndicatorStyle={{width:'15%',backgroundColor:COLORS.background.paper}}
             >
-                    <ScrollView showsVerticalScrollIndicator={false}>
+                    <BottomSheetScrollView showsVerticalScrollIndicator={false}>
                 <BottomSheetView style={styles.contentContainer}>
                     <View style={styles.gridContainer}>
                         <Pressable style={styles.gridItem}>
@@ -171,7 +171,7 @@ const Home = () => {
                     </View>
 
                 </BottomSheetView>
-                    </ScrollView>
+                    </BottomSheetScrollView>
             </BottomSheet>
 
         </Pressable>
