@@ -48,7 +48,7 @@ const Home = ({navigation,route}) => {
                             placeholder='Pay by name or Phone number'
                         />
                     </Pressable>
-                    <Pressable onPress={()=>navigation.navigate('profile')} style={styles.avatar}>
+                    <Pressable onPress={()=>navigation.navigate('dashboard')} style={styles.avatar}>
                         <Image
                             transition={500}
                             source={'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxIss5IsLcvu7gmR2zDMQg4Pyy-guEblfe0o7ggjCvS_YAk6sICcnBevUAMYvaB-VlGHJa'}

@@ -59,3 +59,11 @@ export const businessNbills = [
       name: 'Teletalk Prepaid',
     },
   ];
+
+  export const BANK_INFO = {
+    LOGO:'https://seeklogo.com/images/I/islami-bank-bangladesh-ltd-logo-02A206BDDC-seeklogo.com.png',
+    BANK_NAME:'Islami Bank Bangladesh Ltd.',
+    ACCOUNT_TYPE:'Savings account',
+    ACCOUNT_CATEGORY:'Primary',
+  }
+  export const REWARD_IMAGE = 'https://img.freepik.com/free-vector/illustration-startup-business-doodle_53876-26559.jpg?w=740&t=st=1718386592~exp=1718387192~hmac=6d630fe2d338662ad6a1a59df1935cf10e9ff24ce3a6181dc91ccf6fd2f32d7d'

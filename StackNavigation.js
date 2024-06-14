@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from './screens/Home'
-import Profile from './screens/Profile'
+import Dashboard from './screens/Dashboard'
 
 const {Navigator,Screen} = createNativeStackNavigator()
 const StackNavigation = () => {
@@ -15,7 +15,7 @@ const StackNavigation = () => {
   header:()=>null
 }} initialRouteName='home'>
 <Screen name='home' component={Home}/>
-<Screen name='profile' component={Profile}/>
+<Screen name='dashboard' component={Dashboard}/>
 </Navigator>
     </NavigationContainer>
   )
