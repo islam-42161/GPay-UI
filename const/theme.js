@@ -1,13 +1,21 @@
-import { StatusBar } from "react-native";
+import { Dimensions, PixelRatio, StatusBar } from 'react-native';
+
+const { width, height } = Dimensions.get("window");
+
+// Function to scale values based on screen width
+const scale = size => (width / 375) * size;
+
+// Adjust pixel ratio for more precise scaling
+const scaleFont = size => size * PixelRatio.getFontScale();
 
 export const COLORS = {
     primary: {
-      50: '#E3F2FD',    // Light Blue
+      50: '#E3F2FD',
       100: '#BBDEFB',
       200: '#90CAF9',
       300: '#64B5F6',
       400: '#42A5F5',
-      500: '#2196F3',   // Primary Blue
+      500: '#2196F3',
       600: '#1E88E5',
       700: '#1976D2',
       800: '#1565C0',
@@ -18,12 +26,12 @@ export const COLORS = {
       A700: '#2962FF',
     },
     secondary: {
-      50: '#F1F3F4',    // Light Gray
+      50: '#F1F3F4',
       100: '#E8E8E8',
       200: '#D3D3D3',
       300: '#BDBDBD',
       400: '#9E9E9E',
-      500: '#757575',   // Gray
+      500: '#757575',
       600: '#616161',
       700: '#424242',
       800: '#303030',
@@ -39,7 +47,7 @@ export const COLORS = {
       200: '#EF9A9A',
       300: '#E57373',
       400: '#EF5350',
-      500: '#F44336',   // Red
+      500: '#F44336',
       600: '#E53935',
       700: '#D32F2F',
       800: '#C62828',
@@ -55,7 +63,7 @@ export const COLORS = {
       200: '#FFE082',
       300: '#FFD54F',
       400: '#FFCA28',
-      500: '#FFC107',   // Yellow
+      500: '#FFC107',
       600: '#FFB300',
       700: '#FFA000',
       800: '#FF8F00',
@@ -71,7 +79,7 @@ export const COLORS = {
       200: '#A5D6A7',
       300: '#81C784',
       400: '#66BB6A',
-      500: '#4CAF50',   // Green
+      500: '#4CAF50',
       600: '#43A047',
       700: '#388E3C',
       800: '#2E7D32',
@@ -82,25 +90,25 @@ export const COLORS = {
       A700: '#00C853',
     },
     text: {
-      primary: '#000000', // Black
-      secondary: '#5F6368', // Dark Gray
+      primary: '#000000',
+      secondary: '#5F6368',
       hint: '#9E9E9E',
       disabled: '#BDBDBD',
     },
     background: {
-      default: '#FFFFFF', // White
+      default: '#FFFFFF',
       paper: '#FAFAFA',
     },
   };
-  
-  export const FONT_SIZES = {
-    small: 12,
-    medium: 16,
-    large: 20,
-    extraLarge: 24,
+
+export const FONT_SIZES = {
+    small: scaleFont(12),
+    medium: scaleFont(16),
+    large: scaleFont(20),
+    extraLarge: scaleFont(24),
   };
-  
-  export const FONT_WEIGHTS = {
+
+export const FONT_WEIGHTS = {
     thin: '100',
     light: '300',
     regular: '400',
@@ -108,18 +116,20 @@ export const COLORS = {
     bold: '700',
     extraBold: '800',
   };
-  
-  export const BORDER_RADIUS = {
-    small: 4,
-    medium: 8,
-    large: 16,
-    extraLarge: 24,
+
+export const BORDER_RADIUS = {
+    small: scale(4),
+    medium: scale(8),
+    large: scale(16),
+    extraLarge: scale(24),
   };
-  export const SPACING = {
-    extraSmall: 4,
-    small: 8,
-    medium: 16,
-    large: 24,
-    extraLarge: 32,
+
+export const SPACING = {
+    extraSmall: scale(4),
+    small: scale(8),
+    medium: scale(16),
+    large: scale(24),
+    extraLarge: scale(32),
   };
-  export const STATUSBAR_HEIGHT = StatusBar.currentHeight 
+
+export const STATUSBAR_HEIGHT = StatusBar.currentHeight;
